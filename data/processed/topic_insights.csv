@@ -1,9 +1,9 @@
-topic,mentions,unique_customers,negative_percentage,average_severity_score,affected_monthly_revenue,average_customer_value,recent_mentions,previous_mentions,growth_percentage,recency_ratio,frequency_score,severity_score,trend_score,customer_value_score,recency_score,opportunity_score,priority,emerging_issue
-Payment Failure,165,130,100.0,100.0,8455948,51248.17,71,50,42.0,43.03,100.0,100.0,21.0,100.0,100.0,84.2,Critical,False
-Invoice Export,98,84,0.0,50.0,3847757,39262.83,29,28,3.57,29.59,59.39,50.0,1.78,76.61,68.77,49.51,Medium,False
-Login Problem,89,74,100.0,75.0,4286618,48164.25,7,22,-68.18,7.87,53.94,75.0,0.0,93.98,18.29,49.08,Medium,False
-Refund Delay,81,74,100.0,75.0,3629555,44809.32,10,20,-50.0,12.35,49.09,75.0,0.0,87.44,28.7,48.44,Medium,False
-Integration Request,75,68,0.0,50.0,3476786,46357.15,13,17,-23.53,17.33,45.45,50.0,0.0,90.46,40.27,43.47,Low,False
-Slow Application,88,84,100.0,50.0,3573475,40607.67,14,23,-39.13,15.91,53.33,50.0,0.0,79.24,36.97,43.26,Low,False
-Dashboard Usability,85,72,0.0,25.0,3505750,41244.12,15,22,-31.82,17.65,51.52,25.0,0.0,80.48,41.02,37.36,Low,False
-Positive Experience,69,62,0.0,25.0,3353174,48596.72,9,20,-55.0,13.04,41.82,25.0,0.0,94.83,30.3,35.47,Low,False
+topic,mentions,unique_customers,negative_percentage,average_severity_score,affected_monthly_revenue,average_customer_value,recent_mentions,previous_mentions,growth_percentage,recency_ratio,frequency_score,severity_score,trend_score,customer_value_score,recency_score,opportunity_score,priority,growth_rank,emerging_issue
+Payment Failure,165,130,100.0,100.0,8455948,51248.17,71,50,42.0,43.03,100.0,100.0,21.0,100.0,100.0,84.2,Critical,1.0,True
+Invoice Export,98,84,0.0,50.0,3847757,39262.83,29,28,3.57,29.59,59.39,50.0,1.78,76.61,68.77,49.51,Medium,2.0,False
+Login Problem,89,74,100.0,75.0,4286618,48164.25,7,22,-68.18,7.87,53.94,75.0,0.0,93.98,18.29,49.08,Medium,8.0,False
+Refund Delay,81,74,100.0,75.0,3629555,44809.32,10,20,-50.0,12.35,49.09,75.0,0.0,87.44,28.7,48.44,Medium,6.0,False
+Integration Request,75,68,0.0,50.0,3476786,46357.15,13,17,-23.53,17.33,45.45,50.0,0.0,90.46,40.27,43.47,Low,3.0,False
+Slow Application,88,84,100.0,50.0,3573475,40607.67,14,23,-39.13,15.91,53.33,50.0,0.0,79.24,36.97,43.26,Low,5.0,False
+Dashboard Usability,85,72,0.0,25.0,3505750,41244.12,15,22,-31.82,17.65,51.52,25.0,0.0,80.48,41.02,37.36,Low,4.0,False
+Positive Experience,69,62,0.0,25.0,3353174,48596.72,9,20,-55.0,13.04,41.82,25.0,0.0,94.83,30.3,35.47,Low,7.0,False

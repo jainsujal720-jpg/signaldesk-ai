@@ -40,23 +40,25 @@ def calculate_growth(
     if previous_mentions == 0:
         return 100.0 if recent_mentions > 0 else 0.0
 
-    return round(
-        (
-            (recent_mentions - previous_mentions)
-            / previous_mentions
-        )
-        * 100,
-        2,
-    )
+    growth = (
+        (recent_mentions - previous_mentions)
+        / previous_mentions
+    ) * 100
+
+    return round(growth, 2)
 
 
 def assign_priority(score: float) -> str:
+    """Convert an Opportunity Score into a priority."""
     if score >= 80:
         return "Critical"
+
     if score >= 65:
         return "High"
+
     if score >= 45:
         return "Medium"
+
     return "Low"
 
 
@@ -66,7 +68,10 @@ def build_topic_insights(
 ) -> pd.DataFrame:
     """Calculate product metrics for every feedback topic."""
     frame = data.copy()
-    frame["created_at"] = pd.to_datetime(frame["created_at"])
+
+    frame["created_at"] = pd.to_datetime(
+        frame["created_at"]
+    )
 
     frame["severity_score"] = (
         frame["severity_label"]
@@ -75,10 +80,14 @@ def build_topic_insights(
     )
 
     maximum_date = frame["created_at"].max()
+
     recent_start = maximum_date - pd.Timedelta(days=29)
     previous_start = recent_start - pd.Timedelta(days=30)
 
-    recent = frame[frame["created_at"] >= recent_start]
+    recent = frame[
+        frame["created_at"] >= recent_start
+    ]
+
     previous = frame[
         (frame["created_at"] >= previous_start)
         & (frame["created_at"] < recent_start)
@@ -90,14 +99,23 @@ def build_topic_insights(
         recent_count = int(
             (recent[topic_column] == topic).sum()
         )
+
         previous_count = int(
             (previous[topic_column] == topic).sum()
         )
 
         mentions = len(topic_data)
+
         growth = calculate_growth(
             recent_count,
             previous_count,
+        )
+
+        negative_percentage = (
+            topic_data["sentiment_label"]
+            .eq("Negative")
+            .mean()
+            * 100
         )
 
         records.append(
@@ -108,12 +126,7 @@ def build_topic_insights(
                     topic_data["customer_id"].nunique()
                 ),
                 "negative_percentage": round(
-                    (
-                        topic_data["sentiment_label"]
-                        .eq("Negative")
-                        .mean()
-                    )
-                    * 100,
+                    negative_percentage,
                     2,
                 ),
                 "average_severity_score": round(
@@ -183,9 +196,27 @@ def build_topic_insights(
         .apply(assign_priority)
     )
 
+    # Rank topics from highest growth to lowest growth.
+    insights["growth_rank"] = (
+        insights["growth_percentage"]
+        .rank(
+            method="dense",
+            ascending=False,
+        )
+    )
+
+    # Trigger an alert when:
+    # 1. There are at least 10 recent mentions.
+    # 2. Growth is at least 20%.
+    # 3. The topic is either the fastest-growing topic
+    #    or has grown by at least 40%.
     insights["emerging_issue"] = (
         (insights["recent_mentions"] >= 10)
-        & (insights["growth_percentage"] >= 50)
+        & (insights["growth_percentage"] >= 20)
+        & (
+            (insights["growth_rank"] == 1)
+            | (insights["growth_percentage"] >= 40)
+        )
     )
 
     return insights.sort_values(
@@ -196,6 +227,7 @@ def build_topic_insights(
 
 def main() -> None:
     parser = argparse.ArgumentParser()
+
     parser.add_argument(
         "--input",
         type=Path,
@@ -204,6 +236,7 @@ def main() -> None:
             / "flowpay_feedback_clean.csv"
         ),
     )
+
     parser.add_argument(
         "--output",
         type=Path,
@@ -212,13 +245,22 @@ def main() -> None:
             / "topic_insights.csv"
         ),
     )
+
     args = parser.parse_args()
 
     feedback = pd.read_csv(args.input)
+
     insights = build_topic_insights(feedback)
 
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    insights.to_csv(args.output, index=False)
+    args.output.parent.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    insights.to_csv(
+        args.output,
+        index=False,
+    )
 
     display_columns = [
         "topic",
@@ -232,8 +274,16 @@ def main() -> None:
 
     print("\nSignalDesk Product Intelligence")
     print("--------------------------------")
-    print(insights[display_columns].to_string(index=False))
-    print(f"\nInsights saved to: {args.output}")
+
+    print(
+        insights[display_columns].to_string(
+            index=False
+        )
+    )
+
+    print(
+        f"\nInsights saved to: {args.output}"
+    )
 
 
 if __name__ == "__main__":
