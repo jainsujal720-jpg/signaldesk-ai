@@ -1,0 +1,5 @@
+{
+  "cluster_label_accuracy": 0.7667,
+  "adjusted_rand_index": 0.6688,
+  "normalized_mutual_information": 0.7878
+}

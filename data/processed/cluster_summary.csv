@@ -1,0 +1,9 @@
+cluster_id,predicted_topic,records,unique_comments,dominant_golden_label,sample_feedback
+3,Payment Failure,233,8,Payment Failure,My payment failed after I entered the OTP. | Biometric login stopped working after the update. | The app crashed while I was paying by card.
+5,Dashboard Usability,115,5,Dashboard Usability,The analytics screen needs clearer filters. | Please allow us to customize dashboard widgets. | The dashboard takes too long to load.
+1,Invoice Export,98,4,Invoice Export,Please add an option to export invoices to Excel. | We need bulk invoice downloads for accounting. | Invoice export would save our finance team several hours.
+2,Slow Application,96,5,Slow Application,Transaction history freezes when I scroll. | The app keeps signing me out. | The latest version feels slower than the previous one.
+4,Refund Delay,81,4,Refund Delay,Support confirmed a refund but I have not received it. | My refund has not arrived after ten days. | The refund status has been pending for a week.
+7,Integration Request,75,4,Integration Request,Please add an integration with our accounting software. | We would like API support for transaction reconciliation. | Please connect FlowPay with more CRM platforms.
+0,Dashboard Usability,36,2,Dashboard Usability,Important payment information is difficult to find. | FlowPay makes payment tracking much easier.
+6,Positive Experience,16,1,Positive Experience,Customer support resolved my problem quickly.
