@@ -1,0 +1,109 @@
+{
+  "insights": [
+    {
+      "cluster_id": 0,
+      "topic_name": "Payment Information Accessibility",
+      "summary": "Customers find it difficult to locate important payment information but acknowledge that FlowPay eases payment tracking.",
+      "severity": "Low",
+      "evidence": [
+        "Important payment information is difficult to find.",
+        "FlowPay makes payment tracking much easier."
+      ],
+      "recommended_action": "Improve the UI and navigation to make important payment information more accessible and prominently displayed.",
+      "confidence": 0.8
+    },
+    {
+      "cluster_id": 1,
+      "topic_name": "Invoice Export Features",
+      "summary": "Customers request the ability to export invoices in various formats (Excel, PDF, CSV) and support for bulk downloads to improve accounting efficiency.",
+      "severity": "Medium",
+      "evidence": [
+        "Please add an option to export invoices to Excel.",
+        "We need bulk invoice downloads for accounting.",
+        "Invoice export would save our finance team several hours."
+      ],
+      "recommended_action": "Develop and release features to allow invoice export in Excel, PDF, and CSV formats with bulk download capabilities.",
+      "confidence": 0.9
+    },
+    {
+      "cluster_id": 2,
+      "topic_name": "App Performance and Stability Issues",
+      "summary": "Many customers report the mobile app is slow and unstable, including freezing during transaction history scrolling, unexpected sign-outs, and general sluggishness.",
+      "severity": "High",
+      "evidence": [
+        "Transaction history freezes when I scroll.",
+        "The app keeps signing me out.",
+        "The latest version feels slower than the previous one.",
+        "The mobile application has become very slow."
+      ],
+      "recommended_action": "Investigate and optimize the mobile app's performance and stability focusing on scrolling, session management, and overall speed improvements.",
+      "confidence": 0.85
+    },
+    {
+      "cluster_id": 3,
+      "topic_name": "Critical Payment and Login Failures",
+      "summary": "Users experience severe issues with payments failing post-OTP entry, double charges, app crashes during payments, login failures, missing OTP codes, slow checkouts, and deducted amounts without order confirmation.",
+      "severity": "Critical",
+      "evidence": [
+        "My payment failed after I entered the OTP.",
+        "I was charged twice for the same transaction.",
+        "Checkout keeps loading and the payment never completes.",
+        "The amount was deducted but the order was not confirmed."
+      ],
+      "recommended_action": "Initiate an urgent investigation into payment processing and authentication workflows; fix bugs causing transaction failures, duplicate charges, login and OTP delivery issues immediately.",
+      "confidence": 0.95
+    },
+    {
+      "cluster_id": 4,
+      "topic_name": "Refund Delays and Uncertainty",
+      "summary": "Customers report long delays in receiving refunds, unclear refund status, and lack of visibility into refund processing timelines.",
+      "severity": "High",
+      "evidence": [
+        "Support confirmed a refund but I have not received it.",
+        "My refund has not arrived after ten days.",
+        "The refund status has been pending for a week."
+      ],
+      "recommended_action": "Enhance refund processing reliability and provide clear, real-time refund status updates to customers to reduce uncertainty and delays.",
+      "confidence": 0.9
+    },
+    {
+      "cluster_id": 5,
+      "topic_name": "Dashboard and Analytics Usability",
+      "summary": "Mixed feedback on dashboard usability: some find it clean and helpful, others report confusing navigation, slow loading, and desire for customizable dashboard widgets and clearer analytic filters.",
+      "severity": "Medium",
+      "evidence": [
+        "The analytics screen needs clearer filters.",
+        "Please allow us to customize dashboard widgets.",
+        "The dashboard takes too long to load.",
+        "The new dashboard is clean and helpful.",
+        "The dashboard navigation is confusing."
+      ],
+      "recommended_action": "Improve dashboard navigation, speed up loading times, and add options for widget customization and clearer filter controls for analytics.",
+      "confidence": 0.8
+    },
+    {
+      "cluster_id": 6,
+      "topic_name": "Customer Support Satisfaction",
+      "summary": "Customers express satisfaction with the prompt resolution of their problems by customer support.",
+      "severity": "Low",
+      "evidence": [
+        "Customer support resolved my problem quickly."
+      ],
+      "recommended_action": "Continue maintaining strong customer support responsiveness and possibly highlight support successes in communications.",
+      "confidence": 0.7
+    },
+    {
+      "cluster_id": 7,
+      "topic_name": "Integration and API Support Requests",
+      "summary": "Customers seek integrations with accounting software, CRM platforms, and APIs to simplify workflows and support transaction reconciliation.",
+      "severity": "Medium",
+      "evidence": [
+        "Please add an integration with our accounting software.",
+        "We would like API support for transaction reconciliation.",
+        "Please connect FlowPay with more CRM platforms."
+      ],
+      "recommended_action": "Prioritize development of integrations with popular accounting software, CRM systems, and provide robust API support for transaction reconciliation.",
+      "confidence": 0.85
+    }
+  ]
+}
